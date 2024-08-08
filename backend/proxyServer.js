@@ -5,6 +5,8 @@ const { MANGA } = require('@consumet/extensions');
 
 const app = express();
 app.use(cors());
+const port = process.env.PORT || 5000;
+
 
 app.get('/manga/search/:name', async (req, res) => {
   const mangaProvider = new MANGA.Mangasee123();
@@ -37,6 +39,6 @@ app.get('/chapter/getPages/:chapterId', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('Proxy server running on http://localhost:5000');
+app.listen(port, () => {
+  console.log(`Proxy server running on http://localhost:${port}`);
 });
